@@ -158,10 +158,12 @@ var controller = (function(regisCtrl, UICtrl){
             }
         });
         if (isValid){
-            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                window.webkit.messageHandlers.jsHandler.postMessage(input);
-                
-            }else{
+//            if( /Dani/i.test(navigator.userAgent) ) {
+//                document.getElementById("inputs").innerHTML = "Dani"
+//                window.webkit.messageHandlers.jsHandler.postMessage(input);
+//                
+//            }else{
+                document.getElementById("inputs").innerHTML = "webbbbDanie"
                 localStorage.setItem("formInputs",JSON.stringify(input));
                 console.log("if valid");
                 formInputs = JSON.parse(localStorage.getItem("formInputs"));
@@ -171,7 +173,7 @@ var controller = (function(regisCtrl, UICtrl){
                     UICtrl.updateData(formInputs);
                  },1500);
         
-            }
+//            }
             
         }else{
             console.log('not saved');
@@ -207,7 +209,6 @@ var controller = (function(regisCtrl, UICtrl){
     };
     
 })(registrationController, UIController);
-document.getElementById("inputs").innerHTML = JSON.stringify(JSON.parse(localStorage.getItem("formInputs")));
 controller.init();
 
 

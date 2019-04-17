@@ -20,11 +20,13 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         super.viewDidLoad()
         
         webView.navigationDelegate = self
+        
         webView.configuration.userContentController.add(self, name: "jsHandler")
         let url = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Project Assesment")!
         webView.loadFileURL(url, allowingReadAccessTo: url)
         let request = URLRequest(url: url)
         webView.load(request)
+        webView.customUserAgent = "Dani"
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
         
     }
